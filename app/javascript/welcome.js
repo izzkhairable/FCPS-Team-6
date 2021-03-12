@@ -1,5 +1,5 @@
 function getName() {
-	return "User";
+	return "Katrisa Feona";
 }
 
 function getProfile() {
