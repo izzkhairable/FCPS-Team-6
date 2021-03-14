@@ -5,4 +5,4 @@ function getCurrentPage() {
 }
 var help_link = "Click Here";
 var result = help_link.link(getCurrentPage());
-document.getElementById("footer").innerHTML = "Don't Understand? " + result;
+//document.getElementById("footer").innerHTML = "Don't Understand? " + result;
