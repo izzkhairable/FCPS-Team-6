@@ -4,29 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Mainpage | Senior</title>
+	<link href="./assets/fontawesome/css/all.css" rel="stylesheet">
+	<link href="./assets/css/bootstrap.min.css" rel="stylesheet">
+	<style type="text/css">
+		.bg-orange {
+			background-color:#f2994a !important;
+		}
+		
+		.profile {
+			width: 35px;
+			height: 35px;
+			border-radius: 50%;
+		}
+
+		.category-picture {
+			width: 250px;
+			height: 250px;
+		}
+
+		.btn {
+			border-radius: .8rem;
+		}
+	</style>
 </head>
 <body>
-
-	<div>	
-		<h1 id="welcome"></h1>
-		
-		<br>
-		
-		<p id="logo">[Bangwo Logo]</p>
-
-		<br>
-		
-		<h1>What do you need help ah?</h1>
-		<div id="task-category">
+	<nav class="navbar nav-fill navbar-dark bg-orange">
+		<span class="navbar-brand nav-item mb-0 h1" id="welcome"></span>
+		<span class="navbar-brand nav-item">
+			<img alt="" id="profile" class="profile">
+		</span>
+	</nav>
+	<main class="container text-center">
+		<div class="container">
+			<img alt="" class="img-fluid" id="logo">
 		</div>
-		<div id="task-category-navigation">
-			<p id="left-arrow">[left arrow]</p>
-            <p id="page-num"></p>
-            <p id="right-arrow">[right arrow]</p>
+		<div class="container" id="header-text">
 		</div>
-	</div>
-	<div id="footer">
-    </div>
+		<div class="container">
+			<div class="row" id="task-category">
+			</div>
+		</div>
+		<div class="container" id="page-num"></div>
+	</main>
+	<footer class="container-fluid footer">
+		<div class="d-grid gap-2">
+			<button type="button" class="btn btn-lg btn-dark btn-block">I need help with something else</button>
+		</div>
+	</footer>
+
+	<script src="./assets/js/bootstrap.bundle.min.js"></script>
 </body>
 
 <script src="javascript/welcome.js"></script>

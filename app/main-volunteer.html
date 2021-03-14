@@ -11,10 +11,19 @@
 			background-color:#f2994a !important;
 		}
 		
-		.profile-picture {
+		.profile {
 			width: 35px;
 			height: 35px;
 			border-radius: 50%;
+		}
+
+		.task-picture {
+			width: 250px;
+			height: 250px;
+		}
+
+		.btn {
+			border-radius: .8rem;
 		}
     </style>
 </head>
@@ -22,7 +31,7 @@
 	<nav class="navbar nav-fill navbar-dark bg-orange">
 		<span class="navbar-brand nav-item mb-0 h1" id="welcome"></span>
 		<span class="navbar-brand nav-item">
-			<img alt="" id="profile" class="profile-picture">
+			<img alt="" id="profile" class="profile">
 		</span>
 	</nav>
 	<main class="container text-center">
@@ -30,17 +39,19 @@
 			<img alt="" class="img-fluid" id="logo">
 		</div>
 		<div class="container">
-			<img alt="" class="img-fluid" id="notaskimage">
+			<img alt="" class="task-picture" id="task-picture">
 		</div>
 		<div class="container" id="volunteer-task-section">
 			<h2 id="volunteer-task-header"></h2>
 			<div id="volunteer-task-list">
 			</div>
 		</div>
-		<div class="container-fluid">
-			<button type="button" class="btn btn-dark btn-block">Test Notification <i class="far fa-bell"></i></button>
-		</div>
 	</main>
+	<footer class="container-fluid footer">
+		<div class="d-grid gap-2">
+			<button type="button" class="btn btn-lg btn-dark btn-block">Test Notification <i class="far fa-bell"></i></button>
+		</div>
+	</footer>
 
 	<script src="./assets/js/bootstrap.bundle.min.js"></script>
 </body>
