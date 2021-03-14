@@ -10,11 +10,10 @@ function getLogo() {
 	return "https://4m4you.com/wp-content/uploads/2020/06/logo-placeholder.png";
 }
 
-
 	
 var welcome_message = 'Welcome, ' + getName();
 document.getElementById("welcome").innerHTML = welcome_message;
 
 document.getElementById("profile").src = getProfile(); 
 
-document.getElementById("logo").src = getLogo();
+// document.getElementById("logo").src = getLogo();

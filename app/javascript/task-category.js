@@ -14,11 +14,19 @@ if (task_category == null) {
 	document.getElementById("task-category").innerHTML = "Nothing";
 } else {
 	var first_page = true;
-	var cat_count = 0
+	var cat_count = 0;
+	var page_count = 0;
 	for (let category of task_category) {
-		var page = document.createElement("div");
-		page.setAttribute("id", "category-page");
-		page.className = "carousel-item card row";
+		if (page === undefined){
+			var page = document.createElement("div");
+			page.setAttribute("id", "category-page");
+			page.className = "carousel-item row";
+		}
+		if (page_row === undefined) {
+			var page_row = document.createElement("div");
+			page_row.setAttribute("id", "page-row");
+			page_row.className = "row";
+		}
 
 		var tile = document.createElement("div");
 		tile.className = "card col";
@@ -36,11 +44,15 @@ if (task_category == null) {
 		tile_words.appendChild(tile_name);
 		tile.appendChild(tile_words);
 
-		page.appendChild(tile);
+		page_row.appendChild(tile);
 		tile = undefined;
+		
 		cat_count++;
-
-		if (cat_count%4 === 0) {
+		if (cat_count%2 === 0 || category == task_category[task_category.length-1]) {
+			page.appendChild(page_row);
+			page_row = undefined;
+		}
+		if (cat_count%4 === 0 || category == task_category[task_category.length-1]) {
 			if (first_page) {
 				page.classList.add("active");
 				first_page = false;
@@ -49,6 +61,18 @@ if (task_category == null) {
 			element.appendChild(page);
 			page = undefined;
 		}
+	}
+	var page_count = (Math.floor(cat_count/4));
+	var first_indicator = true
+	for (i = 0; page_count; i++) {
+		var indicator = document.createElement("li");
+		indicator.setAttribute("data-target", "#carouselExampleIndicators");
+		indicator.setAttribute("data-slide-to", i);
+		if (first_indicator) {
+			indicator.className = "active";
+			first_indicator = false;
+		}
+		document.getElementById("page-indicator").appendChild(indicator);
 	}
 	//Tiles with task categories
 	//var page_num = 'Page' + getPageNum();
