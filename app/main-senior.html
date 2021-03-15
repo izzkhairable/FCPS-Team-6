@@ -10,25 +10,41 @@
 		.bg-orange {
 			background-color:#f2994a !important;
 		}
-		
+
+		.bg-creme {
+			background-color: #ffbd12 !important;
+		}
+
+		.bg-green {
+			background-color: #00C6AE !important;
+		}
+
+		.bg-pink {
+			background-color: #FF89BB !important;
+		}
+
+		.bg-purple {
+			background-color: #9B51E0 !important;
+		}
+
+		/* .category-image {
+			width: 90px;
+		} */
+
 		.profile {
 			width: 35px;
 			height: 35px;
 			border-radius: 50%;
 		}
-
-		.category-image {
-			width: 100px;
-			height: 100px;
+		
+		.card {
+			border-radius: .8rem;
 		}
 
 		.btn {
 			border-radius: .8rem;
 		}
 		
-		.help-link {
-			color: red;
-		}
 	</style>
 </head>
 <body>
@@ -53,25 +69,24 @@
 		<div class="container">
 			<h2 id="header-text"></h2>
 		</div>
-		<div class="">
-			<div id="carouselExampleIndicators" class="carousel">
-				<div class="carousel-inner container" id="task-category">
+		<div id="cat-carousel" class="carousel pause container">
+			<div class="carousel-inner container" id="task-category">
+			</div>
+		</div>	
+		<div class="container-fluid">
+			<div class="row justify-content-md-center">
+				<div class="col text-left">
+					<a class="left" href="#cat-carousel" data-slide="prev">
+						<i class="fas fa-2x fa-chevron-circle-left"></i>
+					</a>
 				</div>
-				<ol class="carousel-indicators" id="page-indicator">
-					<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-					<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-					<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-					<li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-				</ol>
-				<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					<span class="sr-only">Previous</span>
-				</a>
-				<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-					<span class="carousel-control-next-icon" aria-hidden="true"></span>
-					<span class="sr-only">Next</span>
-				</a>
-			</div>	
+				<div class="col page-indicator" id="page-indicator"></div>
+				<div class="col text-right">
+					<a class="right" href="#cat-carousel" data-slide="next">
+						<i class="fas fa-2x fa-chevron-circle-right"></i>
+					</a>
+				</div>
+			</div>
 		</div>
 	</main>
 	<footer class="container-fluid footer text-center">
@@ -80,7 +95,7 @@
 		</div>
 		<div id="footer-text">
             Don't Understand?
-            <a href="#" class="help-link">Click Here</a>
+            <a href="#" class="text-danger">Click Here</a>
         </div>
 	</footer>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

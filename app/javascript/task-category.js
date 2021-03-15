@@ -1,11 +1,11 @@
 function getTaskCategory() {
 	//Check page number when getting task category
 	//If got category then return as array [(photo url, name),(photo, name),(photo, name)]
-	var result = [["https://www.foot.com/wp-content/uploads/2017/06/placeholder-square.jpg","Name 1"],["https://www.foot.com/wp-content/uploads/2017/06/placeholder-square.jpg","Name 2"],["https://www.foot.com/wp-content/uploads/2017/06/placeholder-square.jpg","Name 3"],["https://www.foot.com/wp-content/uploads/2017/06/placeholder-square.jpg","Name 4"],["https://www.foot.com/wp-content/uploads/2017/06/placeholder-square.jpg","Name 5"],["https://www.foot.com/wp-content/uploads/2017/06/placeholder-square.jpg","Name 6"],["https://www.foot.com/wp-content/uploads/2017/06/placeholder-square.jpg","Name 7"],["https://www.foot.com/wp-content/uploads/2017/06/placeholder-square.jpg","Name 8"]]
+	var result = [["./images/shopping-rafiki.svg","Carrying Items"],["./images/electrician-rafiki.svg","Changing Light Bulbs"],["./images/gardening-rafiki.svg","Gardening Stuff"],["./images/ocd-rafiki.svg","Spring Cleaning"],["./images/working-rafiki.svg","IT Devices Help"],["./images/lost-rafiki.svg","Go Somewhere"],["./images/empty-rafiki.svg","Moving Furniture"],["./images/cooking-rafiki.svg","Cooking Food"]]
 	return result;
 }
 
-document.getElementById("header-text").innerHTML = "What do you need help ah?";
+document.getElementById("header-text").innerHTML = "You need help doing what?";
 
 var task_category = getTaskCategory();
 
@@ -16,11 +16,12 @@ if (task_category == null) {
 	var first_page = true;
 	var cat_count = 0;
 	var page_count = 0;
+	var color_count = 1;
 	for (let category of task_category) {
 		if (page === undefined){
 			var page = document.createElement("div");
 			page.setAttribute("id", "category-page");
-			page.className = "carousel-item row";
+			page.className = "carousel-item col card-deck";
 		}
 		if (page_row === undefined) {
 			var page_row = document.createElement("div");
@@ -29,7 +30,20 @@ if (task_category == null) {
 		}
 
 		var tile = document.createElement("div");
-		tile.className = "card col";
+		tile.className = "card col m-2 text-white border-dark";
+		if (color_count === 1) {
+			tile.classList.add("bg-creme");
+			color_count++;
+		} else if (color_count === 2) {
+			tile.classList.add("bg-green");
+			color_count++;
+		} else if (color_count === 3) {
+			tile.classList.add("bg-pink");
+			color_count++;
+		} else {
+			tile.classList.add("bg-purple");
+			color_count = 1;
+		}
 
 		var tile_image = document.createElement("img");
 		tile_image.src = category[0];
@@ -37,8 +51,8 @@ if (task_category == null) {
 		tile.appendChild(tile_image);
 
 		var tile_words = document.createElement("div");
-		tile_words.className = "category-name card-body";
-		var tile_name = document.createElement("h2")
+		tile_words.className = "category-name card-title";
+		var tile_name = document.createElement("h5")
 		tile_name.className = "card-text";
 		tile_name.innerHTML = category[1];
 		tile_words.appendChild(tile_name);
@@ -62,19 +76,13 @@ if (task_category == null) {
 			page = undefined;
 		}
 	}
-	var page_count = (Math.floor(cat_count/4));
-	var first_indicator = true
-	for (i = 0; page_count; i++) {
-		var indicator = document.createElement("li");
-		indicator.setAttribute("data-target", "#carouselExampleIndicators");
-		indicator.setAttribute("data-slide-to", i);
-		if (first_indicator) {
-			indicator.className = "active";
-			first_indicator = false;
-		}
-		document.getElementById("page-indicator").appendChild(indicator);
-	}
-	//Tiles with task categories
-	//var page_num = 'Page' + getPageNum();
-	//document.getElementById("page-num").innerHTML = page_num;
+	// var page_count = (Math.floor(cat_count/4));
+	var totalItems = (Math.floor(cat_count/4));
+	var currentIndex = $('div.active').index() + 1;
+	$('.page-indicator').html('Page ' + currentIndex + ' / ' + totalItems + '');
 }
+
+$('#cat-carousel').on('slid.bs.carousel', function() {
+	currentIndex = $('div.active').index() + 1;
+	$('.page-indicator').html('Page ' + currentIndex + ' / ' + totalItems + '');
+});
