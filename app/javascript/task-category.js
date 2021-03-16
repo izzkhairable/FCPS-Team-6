@@ -58,6 +58,12 @@ if (task_category == null) {
 		tile_words.appendChild(tile_name);
 		tile.appendChild(tile_words);
 
+		var link = document.createElement("a");
+		link.className = "stretched-link";
+		cat = category[1].replace(/\s/g, '');
+		link.href = "get-location.html?cat=" + cat;
+		tile.appendChild(link);
+
 		page_row.appendChild(tile);
 		tile = undefined;
 		
